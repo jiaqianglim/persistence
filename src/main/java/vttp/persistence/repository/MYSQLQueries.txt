@@ -1,0 +1,7 @@
+select distinct ? from databasename
+select count(*) from databasename where ? like '?'
+select count(distinct *) from databasename where ? like '?'
+select avg(?) from databasename where ? like '?'
+select sum(length(?)) from databasename where ? like '?'
+select ?, count(?) from databasename where ? like ‘?’ 
+    group by ? having count(?) order by ? desc;
