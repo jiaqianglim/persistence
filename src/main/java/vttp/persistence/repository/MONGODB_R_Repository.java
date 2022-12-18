@@ -13,7 +13,7 @@ import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class MONGODBRepository {
+public class MONGODB_R_Repository {
 
     @Autowired
     private MongoTemplate mongoTemp;

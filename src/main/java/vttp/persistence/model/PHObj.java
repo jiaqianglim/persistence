@@ -1,5 +1,7 @@
 package vttp.persistence.model;
 
+import org.bson.Document;
+import org.bson.types.ObjectId;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 
 import jakarta.json.Json;
@@ -20,6 +22,13 @@ public class PHObj {
     public JsonObject toJson() {
         JsonObject MYSQLObjectJson = Json.createObjectBuilder().add("id", id).add("name", name).build();
         return MYSQLObjectJson;
+    }
+
+    public Document toBsonDoc() {
+        Document doc = new Document("_id", new ObjectId());
+        doc.append("id", id);
+        doc.append("name", name);
+        return doc;
     }
 
     public String getId() {
