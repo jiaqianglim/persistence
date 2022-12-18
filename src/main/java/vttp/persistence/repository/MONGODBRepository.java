@@ -33,14 +33,12 @@ public class MONGODBRepository {
     public List<Document> getAllWithoutCriteria() {
         Criteria criteria = new Criteria();
         Query query = Query.query(criteria);
-        List<Document> results = mongoTemp.find(query, Document.class, "collectionname");
-        return results;
+        return mongoTemp.find(query, Document.class, "collectionname");
     }
 
     public List<Document> getByCriteria(Criteria criteria) {
         Query query = Query.query(criteria);
-        List<Document> results = mongoTemp.find(query, Document.class, "collectionname");
-        return results;
+        return mongoTemp.find(query, Document.class, "collectionname");
     }
 
     public Optional<Document> getPHObjById(String id) {
@@ -68,6 +66,12 @@ public class MONGODBRepository {
 
     public List<Document> getWithPaginationAndSort(Criteria criteria, int limit, int offset, String sortCriteria) {
         Query query = Query.query(criteria).with(Sort.by(Sort.Direction.ASC, sortCriteria)).skip(offset).limit(limit);
+        return mongoTemp.find(query, Document.class, "collectionname");
+    }
+
+    public List<Document> getByCriteriaWithProjection(Criteria criteria) {
+        Query query = Query.query(criteria);
+        query.fields().exclude("_id", "key1").include("key2", "key3", "keyetc");
         return mongoTemp.find(query, Document.class, "collectionname");
     }
 
