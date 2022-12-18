@@ -6,7 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import vttp.persistence.model.MYSQLObject;
+import vttp.persistence.model.PHObj;
 import vttp.persistence.repository.MYSQLRepository;
 
 @Service
@@ -14,13 +14,13 @@ public class MYSQLService {
     @Autowired
     private MYSQLRepository mysqlRepo;
 
-    public List<MYSQLObject> getAllSQLObject(int limit, int offset) {
-        List<MYSQLObject> results = mysqlRepo.getMYSQLObjects(limit, offset);
+    public List<PHObj> getAllphObj(int limit, int offset) {
+        List<PHObj> results = mysqlRepo.getPHObjs(limit, offset);
         return results;
     }
 
-    public Optional<MYSQLObject> getSQLObjectById(final String id) {
-        MYSQLObject results = mysqlRepo.getMYSQLObjectById(id);
+    public Optional<PHObj> getphObjById(final String id) {
+        PHObj results = mysqlRepo.getPHObjById(id);
         if (results != null)
             return Optional.of(results);
         return Optional.empty();

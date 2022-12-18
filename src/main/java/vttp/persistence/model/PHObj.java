@@ -1,21 +1,20 @@
 package vttp.persistence.model;
 
-import org.springframework.jdbc.support.incrementer.MySQLMaxValueIncrementer;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 
 import jakarta.json.Json;
 import jakarta.json.JsonObject;
 
-public class MYSQLObject {
+public class PHObj {
 
     private String id;
     private String name;
 
-    public static MYSQLObject fromSqlRS(SqlRowSet rs) {
-        final MYSQLObject mysqlObject = new MYSQLObject();
-        mysqlObject.setId(rs.getString("id"));
-        mysqlObject.setName(rs.getString("name"));
-        return mysqlObject;
+    public static PHObj fromSqlRS(SqlRowSet rs) {
+        final PHObj phObj = new PHObj();
+        phObj.setId(rs.getString("id"));
+        phObj.setName(rs.getString("name"));
+        return phObj;
     }
 
     public JsonObject toJson() {
